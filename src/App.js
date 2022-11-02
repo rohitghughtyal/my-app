@@ -1,33 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import Main from './component/Main';
+import Navbar from './component/Navbar';
 
-function Header(){
-  return (
+// import Navbar from './component/Navbar';
 
-    <header className="App-header" > ReactFacts </header>
-    
-  )
-}
-
-function MainContent(){
-  return(
-    <ul>
-      <li> hi </li>
-      <li> there </li>
-      <li> hmm </li>
-      <li> colll </li>
-    </ul>
-  )
-}
-
-
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <Header />
-      <MainContent />
+      <Navbar />
+      <Main />
     </div>
   );
 }
 
-export default App;
+
