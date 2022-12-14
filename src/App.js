@@ -4,6 +4,7 @@ import Main from './component/Main';
 import Navbar from './component/Navbar';
 import React from 'react';
 import Count from './Count';
+import Box from './Box';
 
 
 // import Navbar from './component/Navbar';
@@ -23,8 +24,9 @@ export default function App() {
   const [data , setData ] = new React.useState(["data 1", "data 2"]);
 
   function addDatahelper () {
+
     setData ( prev => {
-      return [...prev , "data " +  1 + 5 ]
+      return [...prev ,  "data" ] 
     } )
 
   }
@@ -37,8 +39,42 @@ export default function App() {
 
   
 
+  // console.log("APP")
+
+  // Boxes object 
+
+  const Boxes = [
+    {
+      num : 1,
+      isOn : true 
+    },{
+      num : 2,
+      isOn : false 
+    },{
+      num : 3,
+      isOn : true 
+    },{
+      num : 4,
+      isOn : false 
+    },{
+      num : 5,
+      isOn : true 
+    },{
+      num : 6,
+      isOn : true 
+    }
+
+  ]
 
 
+  const [BoxNumber , SetBoxNumber] = React.useState(Boxes)
+
+  const BoxDivs = BoxNumber.map((b )=> { return (
+    <>
+    <Box num = {b.num}  ifOn = {b.isOn}/> <br />
+
+    </>
+  )}  )
   return (
     <div className="App">
       <Navbar />
@@ -51,7 +87,7 @@ export default function App() {
       <button onClick={Add}> +  </button>
       <button onClick={sub} > - </button>
 
-      <button onClick={() => { return setCount(count +2)}}> + </button>
+      <button onClick={() => { return setCount(count +1 )}}> + </button>
 
       <br />
       <br />
@@ -61,8 +97,7 @@ export default function App() {
       {dataArr}
       <Count number = {count}  /> 
 
-
-
+      {BoxDivs}
     </div>
   );
 }
